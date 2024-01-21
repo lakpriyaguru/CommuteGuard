@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RAD</string>
+    <string name="app_name">CommuteGuard</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -13,7 +13,16 @@
     <string name="register">Register</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="click_to_login">Click to Login</string>
-    <string name="click_to_register">Click to Register</string>
+    <string name="click_to_login">Click here to Login</string>
+    <string name="click_to_register">Click here to Register</string>
     <string name="logout">Logout</string>
+    <string name="morning_shift">Morning Shift</string>
+    <string name="afternoon_shift">Afternoon Shift</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="driver_login_here">Driver? Login here</string>
+    <string name="driver_login">Driver Login</string>
+    <string name="user_login_here">User? Login here</string>
+    <string name="urlLogin">http://192.168.1.5/rad/login.php</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

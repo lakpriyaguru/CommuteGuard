@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:title="Home"
+        android:icon="@drawable/round_dashboard_24"/>
+
+    <item
+        android:id="@+id/location"
+        android:enabled="true"
+        android:title="Location"
+        android:icon="@drawable/round_map_24"/>
+
+    <item
+        android:id="@+id/payment"
+        android:enabled="true"
+        android:title="Payment"
+        android:icon="@drawable/round_payment_24"/>
+
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:title="Profile"
+        android:icon="@drawable/round_account_circle_24"/>
+
+
+</menu>

@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:title="Tracking"
+        android:icon="@drawable/round_crisis_alert_24"/>
+
+    <item
+        android:id="@+id/location"
+        android:enabled="true"
+        android:title="Pickup"
+        android:icon="@drawable/round_keyboard_double_arrow_up_24"/>
+
+    <item
+        android:id="@+id/payment"
+        android:enabled="true"
+        android:title="Dropoff"
+        android:icon="@drawable/round_keyboard_double_arrow_down_24"/>
+
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:title="Profile"
+        android:icon="@drawable/round_account_circle_24"/>
+
+
+</menu>
