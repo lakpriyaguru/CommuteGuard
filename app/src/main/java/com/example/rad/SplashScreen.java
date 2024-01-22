@@ -19,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 // Start the login activity after the splash delay
-                startActivity(new Intent(getApplicationContext(), ClientDashboardFragment.class));
+                startActivity(new Intent(getApplicationContext(), ClientMainActivity.class));
                 finish();
             }
         }, SPLASH_DELAY);

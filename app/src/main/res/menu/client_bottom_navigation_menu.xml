@@ -1,24 +1,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/clientBottomDashboard"
         android:enabled="true"
-        android:title="Home"
+        android:title="Dashboard"
         android:icon="@drawable/round_dashboard_24"/>
 
     <item
-        android:id="@+id/location"
+        android:id="@+id/clientBottomLocation"
         android:enabled="true"
         android:title="Location"
         android:icon="@drawable/round_map_24"/>
 
     <item
-        android:id="@+id/payment"
+        android:id="@+id/clientBottomPayment"
         android:enabled="true"
         android:title="Payment"
         android:icon="@drawable/round_payment_24"/>
 
     <item
-        android:id="@+id/profile"
+        android:id="@+id/clientBottomProfile"
         android:enabled="true"
         android:title="Profile"
         android:icon="@drawable/round_account_circle_24"/>

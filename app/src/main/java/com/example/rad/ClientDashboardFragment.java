@@ -1,11 +1,15 @@
 package com.example.rad;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,38 +24,39 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClientDashboardFragment extends AppCompatActivity{
+
+public class ClientDashboardFragment extends Fragment {
 
     Button buttonLogout, buttonFetch;
     TextView textViewLoginDetails, textViewFetchDetails;
     SharedPreferences sharedPreferences;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_client_dashboard);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_client_dashboard, container, false);
 
-        buttonLogout = findViewById(R.id.btnLogout);
-        buttonFetch = findViewById(R.id.btnFetch);
+        buttonLogout = view.findViewById(R.id.btnLogout);
+        buttonFetch = view.findViewById(R.id.btnFetch);
 
-        textViewLoginDetails = findViewById(R.id.loginDetails);
-        textViewFetchDetails = findViewById(R.id.fetchDetails);
+        textViewLoginDetails = view.findViewById(R.id.loginDetails);
+        textViewFetchDetails = view.findViewById(R.id.fetchDetails);
 
-        sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
+
+        sharedPreferences = requireActivity().getSharedPreferences("MyAppName", Context.MODE_PRIVATE);
 
         if (sharedPreferences.getString("logged", "false").equals("false")) {
-            Intent intent = new Intent(getApplicationContext(), ClientLogin.class);
+            Intent intent = new Intent(requireContext(), ClientLogin.class);
             startActivity(intent);
-            finish();
+            requireActivity().finish();
         }
-
-
 
         buttonFetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                RequestQueue queue = Volley.newRequestQueue(requireContext());
                 String url = "http://192.168.1.5/rad/profile.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -84,7 +89,7 @@ public class ClientDashboardFragment extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                RequestQueue queue = Volley.newRequestQueue(requireContext());
                 String url = "http://192.168.1.5/rad/logout.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -92,20 +97,19 @@ public class ClientDashboardFragment extends AppCompatActivity{
                             @Override
                             public void onResponse(String response) {
 
-                                if (response.equals("success")){
+                                if (response.equals("success")) {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("logged", "");
+                                    editor.putString("logged", "false");
                                     editor.putString("name", "");
                                     editor.putString("email", "");
                                     editor.putString("apiKey", "");
                                     editor.apply();
 
-                                    Intent intent = new Intent(getApplicationContext(), ClientLogin.class);
+                                    Intent intent = new Intent(requireContext(), ClientLogin.class);
                                     startActivity(intent);
-                                    finish();
-                                }
-                                else {
-                                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                                    requireActivity().finish();
+                                } else {
+                                    Toast.makeText(requireContext(), response, Toast.LENGTH_SHORT).show();
                                 }
 
                             }
@@ -127,6 +131,10 @@ public class ClientDashboardFragment extends AppCompatActivity{
 
             }
         });
+
+
+        return view;
     }
+
 
 }

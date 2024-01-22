@@ -47,7 +47,7 @@ public class ClientLogin extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
 
         if (sharedPreferences.getString("logged", "false").equals("true")) {
-            Intent intent = new Intent(getApplicationContext(), ClientDashboardFragment.class);
+            Intent intent = new Intent(getApplicationContext(), ClientMainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -103,7 +103,7 @@ public class ClientLogin extends AppCompatActivity {
                                         editor.putString("apiKey", apiKey);
                                         editor.apply();
 
-                                        Intent intent = new Intent(getApplicationContext(), ClientDashboardFragment.class);
+                                        Intent intent = new Intent(getApplicationContext(), ClientMainActivity.class);
                                         startActivity(intent);
                                         finish();
 
