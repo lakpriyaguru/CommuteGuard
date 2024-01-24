@@ -1,24 +1,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/driverBottomTracking"
         android:enabled="true"
         android:title="Tracking"
         android:icon="@drawable/round_crisis_alert_24"/>
 
     <item
-        android:id="@+id/location"
+        android:id="@+id/driverBottomPickup"
         android:enabled="true"
         android:title="Pickup"
         android:icon="@drawable/round_keyboard_double_arrow_up_24"/>
 
     <item
-        android:id="@+id/payment"
+        android:id="@+id/driverBottomDropoff"
         android:enabled="true"
         android:title="Dropoff"
         android:icon="@drawable/round_keyboard_double_arrow_down_24"/>
 
     <item
-        android:id="@+id/profile"
+        android:id="@+id/driverBottomProfile"
         android:enabled="true"
         android:title="Profile"
         android:icon="@drawable/round_account_circle_24"/>

@@ -1,16 +1,15 @@
 package com.example.rad;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,9 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import com.google.android.material.textfield.TextInputEditText;
-
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +26,7 @@ public class ClientRegister extends AppCompatActivity {
 
 
     TextInputEditText textInputEditTextName, textInputEditTextEmail, textInputEditTextPassword;
-    Button buttonRegister;
+    Button buttonClientRegister;
     String name, email, password;
     TextView textViewLoginNow;
     ProgressBar progressBar;
@@ -38,13 +35,13 @@ public class ClientRegister extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_client_register);
 
 
         textInputEditTextName = findViewById(R.id.txtInputName);
         textInputEditTextEmail = findViewById(R.id.txtInputEmail);
         textInputEditTextPassword = findViewById(R.id.txtInputPassword);
-        buttonRegister = findViewById(R.id.btnRegister);
+        buttonClientRegister = findViewById(R.id.btnClientRegister);
         textViewLoginNow = findViewById(R.id.txtViewLoginNow);
         progressBar = findViewById(R.id.progressBar);
 
@@ -60,7 +57,7 @@ public class ClientRegister extends AppCompatActivity {
             }
         });
 
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+        buttonClientRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
@@ -70,7 +67,7 @@ public class ClientRegister extends AppCompatActivity {
                 password = String.valueOf(textInputEditTextPassword.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url ="http://192.168.1.5/rad/register.php";
+                String url = getString(R.string.urlString) + "register.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {

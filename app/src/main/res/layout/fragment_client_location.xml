@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="15dp"
     tools:context=".ClientLocationFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Client Location"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="Client Location" />
 
 </LinearLayout>

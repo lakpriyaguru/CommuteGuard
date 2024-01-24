@@ -1,7 +1,5 @@
 package com.example.rad;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,7 +27,7 @@ import java.util.Map;
 public class ClientLogin extends AppCompatActivity {
 
     TextInputEditText textInputEditTextEmail, textInputEditTextPassword;
-    Button buttonLogin;
+    Button buttonClientLogin;
     String name, email, password, apiKey;
     TextView textViewRegisterNow, textViewDriverLogin;
     ProgressBar progressBar;
@@ -36,21 +36,15 @@ public class ClientLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_client_login);
 
         textInputEditTextEmail = findViewById(R.id.txtInputEmail);
         textInputEditTextPassword = findViewById(R.id.txtInputPassword);
-        buttonLogin = findViewById(R.id.btnLogin);
+        buttonClientLogin = findViewById(R.id.btnClientLogin);
         textViewRegisterNow = findViewById(R.id.txtViewRegisterNow);
         textViewDriverLogin = findViewById(R.id.txtViewDriverLogin);
         progressBar = findViewById(R.id.progressBar);
         sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
-
-        if (sharedPreferences.getString("logged", "false").equals("true")) {
-            Intent intent = new Intent(getApplicationContext(), ClientMainActivity.class);
-            startActivity(intent);
-            finish();
-        }
 
         textViewRegisterNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +64,7 @@ public class ClientLogin extends AppCompatActivity {
             }
         });
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonClientLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
@@ -79,7 +73,7 @@ public class ClientLogin extends AppCompatActivity {
                 password = String.valueOf(textInputEditTextPassword.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = "http://192.168.1.5/rad/login.php";
+                String url = getString(R.string.urlString) + "login.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
@@ -98,6 +92,7 @@ public class ClientLogin extends AppCompatActivity {
                                         apiKey = jsonObject.getString("apiKey");
                                         SharedPreferences.Editor editor = sharedPreferences.edit();
                                         editor.putString("logged", "true");
+                                        editor.putString("userType", "client");
                                         editor.putString("name", name);
                                         editor.putString("email", email);
                                         editor.putString("apiKey", apiKey);

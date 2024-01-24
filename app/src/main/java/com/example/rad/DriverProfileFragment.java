@@ -23,16 +23,18 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
+public class DriverProfileFragment extends Fragment {
 
-public class ClientProfileFragment extends Fragment {
 
     Button buttonLogout, buttonFetch;
     TextView textViewLoginDetails, textViewFetchDetails;
     SharedPreferences sharedPreferences;
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_client_profile, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_driver_profile, container, false);
 
         buttonLogout = view.findViewById(R.id.btnLogout);
         buttonFetch = view.findViewById(R.id.btnFetch);
@@ -42,6 +44,7 @@ public class ClientProfileFragment extends Fragment {
 
         sharedPreferences = requireActivity().getSharedPreferences("MyAppName", Context.MODE_PRIVATE);
 
+
         buttonFetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,13 +52,14 @@ public class ClientProfileFragment extends Fragment {
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
                 String url = getString(R.string.urlString) + "profile.php";
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        textViewFetchDetails.setText(response);
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                textViewFetchDetails.setText(response);
 
-                    }
-                }, new Response.ErrorListener() {
+                            }
+                        }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
@@ -81,28 +85,29 @@ public class ClientProfileFragment extends Fragment {
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
                 String url = getString(R.string.urlString) + "logout.php";
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
 
-                        if (response.equals("success")) {
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("logged", "false");
-                            editor.putString("userType", "client");
-                            editor.putString("name", "");
-                            editor.putString("email", "");
-                            editor.putString("apiKey", "");
-                            editor.apply();
+                                if (response.equals("success")) {
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("logged", "false");
+                                    editor.putString("userType", "driver");
+                                    editor.putString("name", "");
+                                    editor.putString("email", "");
+                                    editor.putString("apiKey", "");
+                                    editor.apply();
 
-                            Intent intent = new Intent(requireContext(), MainActivity.class);
-                            startActivity(intent);
-                            requireActivity().finish();
-                        } else {
-                            Toast.makeText(requireContext(), response, Toast.LENGTH_SHORT).show();
-                        }
+                                    Intent intent = new Intent(requireContext(), MainActivity.class);
+                                    startActivity(intent);
+                                    requireActivity().finish();
+                                } else {
+                                    Toast.makeText(requireContext(), response, Toast.LENGTH_SHORT).show();
+                                }
 
-                    }
-                }, new Response.ErrorListener() {
+                            }
+                        }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();

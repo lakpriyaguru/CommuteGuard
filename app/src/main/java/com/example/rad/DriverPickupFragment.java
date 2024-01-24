@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 
-public class ClientDashboardFragment extends Fragment {
+public class DriverPickupFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_client_dashboard, container, false);
+        return inflater.inflate(R.layout.fragment_driver_pickup, container, false);
     }
 }

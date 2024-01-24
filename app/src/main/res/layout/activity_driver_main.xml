@@ -5,19 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
-    tools:context=".ClientMainActivity">
+    tools:context=".DriverMainActivity">
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/clientViewPager"
+        android:id="@+id/driverViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/clientBottomNav"
+        android:id="@+id/driverBottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/client_bottom_navigation_menu" />
+        app:menu="@menu/driver_bottom_navigation_menu" />
 
 </LinearLayout>
