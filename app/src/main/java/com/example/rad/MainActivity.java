@@ -6,10 +6,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.rad.client.ClientLogin;
-import com.example.rad.client.ClientMainActivity;
-import com.example.rad.driver.DriverMainActivity;
-
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;

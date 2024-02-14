@@ -1,4 +1,4 @@
-package com.example.rad.driver;
+package com.example.rad;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,8 +19,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.rad.MainActivity;
-import com.example.rad.R;
 
 import java.util.HashMap;
 import java.util.Map;

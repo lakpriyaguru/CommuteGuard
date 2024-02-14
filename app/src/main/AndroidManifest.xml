@@ -15,16 +15,13 @@
         android:theme="@style/Theme.Material3.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".client.ClientEditDetails"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".driver.DriverMainActivity"
+            android:name=".DriverMainActivity"
             android:exported="false" />
         <activity
-            android:name=".client.ClientMainActivity"
+            android:name=".ClientMainActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
@@ -36,13 +33,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".client.ClientLogin"
+            android:name=".ClientLogin"
             android:exported="false" />
         <activity
-            android:name=".client.ClientRegister"
+            android:name=".ClientRegister"
             android:exported="false" />
         <activity
-            android:name=".driver.DriverLogin"
+            android:name=".DriverLogin"
             android:exported="false" />
     </application>
 

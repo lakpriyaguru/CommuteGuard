@@ -1,4 +1,4 @@
-package com.example.rad.client;
+package com.example.rad;
 
 
 import android.content.Intent;
@@ -17,7 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.rad.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.HashMap;
@@ -26,7 +25,7 @@ import java.util.Map;
 public class ClientRegister extends AppCompatActivity {
 
 
-    TextInputEditText textInputEditTextFullName, textInputEditTextEmail, textInputEditTextPassword;
+    TextInputEditText textInputEditTextName, textInputEditTextEmail, textInputEditTextPassword;
     Button buttonClientRegister;
     String name, email, password;
     TextView textViewLoginNow;
@@ -39,7 +38,7 @@ public class ClientRegister extends AppCompatActivity {
         setContentView(R.layout.activity_client_register);
 
 
-        textInputEditTextFullName = findViewById(R.id.txtInputFullName);
+        textInputEditTextName = findViewById(R.id.txtInputName);
         textInputEditTextEmail = findViewById(R.id.txtInputEmail);
         textInputEditTextPassword = findViewById(R.id.txtInputPassword);
         buttonClientRegister = findViewById(R.id.btnClientRegister);
@@ -63,7 +62,7 @@ public class ClientRegister extends AppCompatActivity {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
 
-                name = String.valueOf(textInputEditTextFullName.getText());
+                name = String.valueOf(textInputEditTextName.getText());
                 email = String.valueOf(textInputEditTextEmail.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
 

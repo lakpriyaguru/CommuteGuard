@@ -1,4 +1,4 @@
-package com.example.rad.client;
+package com.example.rad;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,8 +16,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.rad.R;
-import com.example.rad.driver.DriverLogin;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;

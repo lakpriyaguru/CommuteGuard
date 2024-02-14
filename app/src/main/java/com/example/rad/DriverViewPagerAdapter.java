@@ -1,4 +1,4 @@
-package com.example.rad.driver;
+package com.example.rad;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

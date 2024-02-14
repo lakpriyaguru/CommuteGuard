@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".driver.DriverProfileFragment">
+    tools:context=".DriverProfileFragment">
 
     <TextView
         android:id="@+id/loginDetails"

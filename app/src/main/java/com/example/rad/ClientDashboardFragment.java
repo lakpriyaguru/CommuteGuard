@@ -1,4 +1,4 @@
-package com.example.rad.driver;
+package com.example.rad;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,14 +7,12 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.rad.R;
 
-
-public class DriverPickupFragment extends Fragment {
+public class ClientDashboardFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_driver_pickup, container, false);
+        return inflater.inflate(R.layout.fragment_client_dashboard, container, false);
     }
 }

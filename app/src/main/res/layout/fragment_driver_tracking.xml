@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".driver.DriverTrackingFragment">
+    tools:context=".DriverTrackingFragment">
 
     <TextView
         android:layout_width="match_parent"

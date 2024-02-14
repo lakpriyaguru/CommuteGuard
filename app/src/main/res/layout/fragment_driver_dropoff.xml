@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".driver.DriverDropoffFragment">
+    tools:context=".DriverDropoffFragment">
 
     <TextView
         android:layout_width="match_parent"

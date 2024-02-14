@@ -1,4 +1,4 @@
-package com.example.rad.driver;
+package com.example.rad;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,32 +10,31 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.rad.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class DriverMainActivity extends AppCompatActivity {
+public class ClientMainActivity extends AppCompatActivity {
 
     ViewPager2 viewPager2;
-    DriverViewPagerAdapter driverViewPagerAdapter;
+    ClientViewPagerAdapter clientViewPagerAdapter;
     BottomNavigationView bottomNavigationView;
     SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_main);
+        setContentView(R.layout.activity_client_main);
 
-        bottomNavigationView = findViewById(R.id.driverBottomNav);
-        viewPager2 = findViewById(R.id.driverViewPager);
+        bottomNavigationView = findViewById(R.id.clientBottomNav);
+        viewPager2 = findViewById(R.id.clientViewPager);
 
-        driverViewPagerAdapter = new DriverViewPagerAdapter(this);
-        viewPager2.setAdapter(driverViewPagerAdapter);
+        clientViewPagerAdapter = new ClientViewPagerAdapter(this);
+        viewPager2.setAdapter(clientViewPagerAdapter);
 
         sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
 
         if (sharedPreferences.getString("logged", "false").equals("false")) {
-            Intent intent = new Intent(getApplicationContext(), DriverLogin.class);
+            Intent intent = new Intent(getApplicationContext(), ClientLogin.class);
             startActivity(intent);
             finish();
         }
@@ -47,13 +46,13 @@ public class DriverMainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
 
-                if (id == R.id.driverBottomTracking) {
+                if (id == R.id.clientBottomDashboard) {
                     viewPager2.setCurrentItem(0);
-                } else if (id == R.id.driverBottomPickup) {
+                } else if (id == R.id.clientBottomLocation) {
                     viewPager2.setCurrentItem(1);
-                } else if (id == R.id.driverBottomDropoff) {
+                } else if (id == R.id.clientBottomPayment) {
                     viewPager2.setCurrentItem(2);
-                } else if (id == R.id.driverBottomProfile) {
+                } else if (id == R.id.clientBottomProfile) {
                     viewPager2.setCurrentItem(3);
                 }
                 return false;
@@ -65,22 +64,20 @@ public class DriverMainActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
-                        bottomNavigationView.getMenu().findItem(R.id.driverBottomTracking).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.clientBottomDashboard).setChecked(true);
                         break;
                     case 1:
-                        bottomNavigationView.getMenu().findItem(R.id.driverBottomPickup).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.clientBottomLocation).setChecked(true);
                         break;
                     case 2:
-                        bottomNavigationView.getMenu().findItem(R.id.driverBottomDropoff).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.clientBottomPayment).setChecked(true);
                         break;
                     case 3:
-                        bottomNavigationView.getMenu().findItem(R.id.driverBottomProfile).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.clientBottomProfile).setChecked(true);
                         break;
                 }
                 super.onPageSelected(position);
             }
         });
-
-
     }
 }
