@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".ClientPaymentFragment">
+    tools:context=".client.ClientPaymentFragment">
 
     <TextView
         android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.example.rad;
+package com.example.rad.client;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
