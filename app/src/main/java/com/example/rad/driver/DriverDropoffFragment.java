@@ -1,4 +1,4 @@
-package com.example.rad;
+package com.example.rad.driver;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.rad.R;
 
 public class DriverDropoffFragment extends Fragment {
 
