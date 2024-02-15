@@ -51,7 +51,7 @@ public class ClientProfileFragment extends Fragment {
 
         // fetching user details from the database
         RequestQueue queue = Volley.newRequestQueue(requireContext());
-        String url = getString(R.string.urlString) + "profile.php";
+        String url = getString(R.string.urlString) + "userProfile.php";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -61,12 +61,12 @@ public class ClientProfileFragment extends Fragment {
                     JSONObject jsonResponse = new JSONObject(response);
                     String name = jsonResponse.getString("name");
                     String email = jsonResponse.getString("email");
-                    String id = jsonResponse.getString("id");
+                    String contact = jsonResponse.getString("contact");
 
                     // Display user details in relevant TextViews
                     textViewName.setText(name);
                     textViewEmail.setText(email);
-                    textViewContact.setText("Contact: " + id);
+                    textViewContact.setText(contact);
                 }
                 //catch (JSONException e) {
                 //    e.printStackTrace();
@@ -157,7 +157,7 @@ queue.add(stringRequest);
             public void onClick(View v) {
 
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
-                String url = getString(R.string.urlString) + "logout.php";
+                String url = getString(R.string.urlString) + "userLogout.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override

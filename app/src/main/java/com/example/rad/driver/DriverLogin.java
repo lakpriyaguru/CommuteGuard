@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -65,7 +66,7 @@ public class DriverLogin extends AppCompatActivity {
                 password = String.valueOf(textInputEditTextPassword.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = getString(R.string.urlString) + "login.php";
+                String url = getString(R.string.urlString) + "driverLogin.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
@@ -90,12 +91,14 @@ public class DriverLogin extends AppCompatActivity {
                                         editor.putString("apiKey", apiKey);
                                         editor.apply();
 
+                                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+
                                         Intent intent = new Intent(getApplicationContext(), DriverMainActivity.class);
                                         startActivity(intent);
                                         finish();
 
                                     } else {
-                                        //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
                                     }
                                 } catch (JSONException e) {

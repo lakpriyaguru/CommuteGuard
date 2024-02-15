@@ -52,7 +52,7 @@ public class DriverProfileFragment extends Fragment {
             public void onClick(View v) {
 
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
-                String url = getString(R.string.urlString) + "profile.php";
+                String url = getString(R.string.urlString) + "driverProfile.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
@@ -85,7 +85,7 @@ public class DriverProfileFragment extends Fragment {
             public void onClick(View v) {
 
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
-                String url = getString(R.string.urlString) + "logout.php";
+                String url = getString(R.string.urlString) + "driverLogout.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {

@@ -8,11 +8,42 @@
     android:padding="15dp"
     tools:context=".driver.DriverTrackingFragment">
 
-    <TextView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Driver Tracking" />
+        android:text="Switch on the tracking when you are get into the Vehicle"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+
+    <Switch
+        android:id="@+id/swLocationUpdate"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:switchMinWidth="48dp"
+        android:text="Tracking"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 
 </LinearLayout>

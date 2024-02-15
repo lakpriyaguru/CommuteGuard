@@ -54,7 +54,7 @@ public class ClientDashboardFragment extends Fragment {
 
                 // fetching user details from the database
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
-                String url = getString(R.string.urlString) + "shiftSubmit.php";
+                String url = getString(R.string.urlString) + "userShiftSubmit.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override

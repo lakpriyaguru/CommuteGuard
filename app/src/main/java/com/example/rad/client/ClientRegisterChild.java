@@ -1,12 +1,10 @@
 package com.example.rad.client;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,60 +24,39 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClientRegister extends AppCompatActivity {
+public class ClientRegisterChild extends AppCompatActivity {
 
-
-    TextInputEditText textInputEditTextFullName, textInputEditTextEmail, textInputEditTextPassword, textInputEditTextNIC, textInputEditTextAddress, textInputEditTextContact;
-    Button buttonClientRegister;
-    String name, email, password;
-    String nic, contact, address;
-    TextView textViewLoginNow;
+    TextInputEditText textInputEditTextChildName, textInputEditTextChildDOB, textInputEditTextGrade, textInputEditTextSchool;
+    Button buttonChildSubmit;
+    String name, dob, grade, school;
     ProgressBar progressBar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client_register);
+        setContentView(R.layout.activity_client_register_child);
 
+        textInputEditTextChildName = findViewById(R.id.txtInputChildName);
+        textInputEditTextChildDOB = findViewById(R.id.txtInputChildDOB);
+        textInputEditTextGrade = findViewById(R.id.txtInputChildGrade);
+        textInputEditTextSchool = findViewById(R.id.txtInputChildSchool);
 
-        textInputEditTextFullName = findViewById(R.id.txtInputFullName);
-        textInputEditTextEmail = findViewById(R.id.txtInputEmail);
-        textInputEditTextPassword = findViewById(R.id.txtInputPassword);
-
-        textInputEditTextNIC = findViewById(R.id.txtInputNIC);
-        textInputEditTextAddress = findViewById(R.id.txtInputAddress);
-        textInputEditTextContact = findViewById(R.id.txtInputContact);
-
-        buttonClientRegister = findViewById(R.id.btnClientRegister);
-
-        textViewLoginNow = findViewById(R.id.txtViewLoginNow);
+        buttonChildSubmit = findViewById(R.id.btnChildSubmit);
 
         progressBar = findViewById(R.id.progressBar);
 
-        textViewLoginNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ClientLogin.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        buttonClientRegister.setOnClickListener(new View.OnClickListener() {
+        buttonChildSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
 
-                name = String.valueOf(textInputEditTextFullName.getText());
-                email = String.valueOf(textInputEditTextEmail.getText());
-                password = String.valueOf(textInputEditTextPassword.getText());
-                nic = String.valueOf(textInputEditTextNIC.getText());
-                address = String.valueOf(textInputEditTextAddress.getText());
-                contact = String.valueOf(textInputEditTextContact.getText());
+                name = String.valueOf(textInputEditTextChildName.getText());
+                dob = String.valueOf(textInputEditTextChildDOB.getText());
+                grade = String.valueOf(textInputEditTextGrade.getText());
+                school = String.valueOf(textInputEditTextSchool.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = getString(R.string.urlString) + "userRegister.php";
+                String url = getString(R.string.urlString) + "userRegisterChild.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
@@ -96,7 +73,7 @@ public class ClientRegister extends AppCompatActivity {
 
                                         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
-                                        Intent intent = new Intent(getApplicationContext(), ClientRegisterChild.class);
+                                        Intent intent = new Intent(getApplicationContext(), ClientLogin.class);
                                         startActivity(intent);
                                         finish();
 
@@ -116,21 +93,22 @@ public class ClientRegister extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
                     }
-                }){
+                }) {
                     protected Map<String, String> getParams() {
                         Map<String, String> paramV = new HashMap<>();
                         paramV.put("name", name);
-                        paramV.put("email", email);
-                        paramV.put("password", password);
-                        paramV.put("nic", nic);
-                        paramV.put("address", address);
-                        paramV.put("contact", contact);
+                        paramV.put("dob", dob);
+                        paramV.put("grade", grade);
+                        paramV.put("school", school);
                         return paramV;
                     }
                 };
                 queue.add(stringRequest);
+
+
             }
         });
+
 
     }
 }

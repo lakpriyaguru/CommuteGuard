@@ -23,18 +23,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:text="Name: John Doe"
-        android:textSize="18sp" />
+        android:layout_marginBottom="5dp"
+        android:text="asdf"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:text="Email: john.doe@example.com"
-        android:textSize="16sp" />
+        android:text="asdf"
+        android:textSize="16sp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/txtViewContact"
@@ -42,8 +43,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
-        android:text="Contact: +1234567890"
-        android:textSize="16sp" />
+        android:text="asdf"
+        android:textSize="16sp"
+        android:textStyle="italic" />
 
     <Button
         android:id="@+id/btnEditDetails"
@@ -57,7 +59,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="View Child Details" />
+        android:text="View/Edit Child Details" />
 
     <Button
         android:id="@+id/btnLogout"
