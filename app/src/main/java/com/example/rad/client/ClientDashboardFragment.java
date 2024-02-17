@@ -46,6 +46,7 @@ public class ClientDashboardFragment extends Fragment {
 
         sharedPreferences = requireActivity().getSharedPreferences("MyAppName", Context.MODE_PRIVATE);
 
+
         buttonShiftSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

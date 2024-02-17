@@ -105,7 +105,9 @@ public class ClientRegister extends AppCompatActivity {
 
                                     }
                                 } catch (JSONException e) {
-                                    throw new RuntimeException(e);
+                                    //throw new RuntimeException(e);
+                                    Toast.makeText(getApplicationContext(), "One or more fields are incorrectly filled, Try Again", Toast.LENGTH_SHORT).show();
+
                                 }
 
                             }

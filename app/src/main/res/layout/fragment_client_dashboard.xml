@@ -29,7 +29,7 @@
 
     <Switch
         android:id="@+id/swMorningShift"
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:switchMinWidth="48dp"
@@ -38,7 +38,7 @@
 
     <Switch
         android:id="@+id/swAfternoonShift"
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:switchMinWidth="48dp"

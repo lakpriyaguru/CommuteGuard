@@ -43,7 +43,8 @@
             android:id="@+id/txtInputChildDOB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Child DOB" />
+            android:hint="Child Date of Birth (YYYY-MM-DD)"
+            android:inputType="date" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,6 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit" />
+
 
     <ProgressBar
         android:id="@+id/progressBar"

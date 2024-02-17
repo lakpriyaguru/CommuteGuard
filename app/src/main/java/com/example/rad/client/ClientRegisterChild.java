@@ -31,6 +31,7 @@ public class ClientRegisterChild extends AppCompatActivity {
     String name, dob, grade, school;
     ProgressBar progressBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,7 @@ public class ClientRegisterChild extends AppCompatActivity {
         buttonChildSubmit = findViewById(R.id.btnChildSubmit);
 
         progressBar = findViewById(R.id.progressBar);
+
 
         buttonChildSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,4 +113,5 @@ public class ClientRegisterChild extends AppCompatActivity {
 
 
     }
+
 }
