@@ -31,6 +31,7 @@
             android:id="@+id/txtInputFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="name"
             android:hint="Full Name" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -43,17 +44,11 @@
             android:id="@+id/txtInputEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
             android:hint="@string/email" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -63,6 +58,7 @@
             android:id="@+id/txtInputPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="password"
             android:hint="@string/password"
             android:inputType="textPassword" />
 
@@ -89,6 +85,7 @@
             android:id="@+id/txtInputAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="postalAddress"
             android:hint="Address" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,27 +98,17 @@
             android:id="@+id/txtInputContact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="phone"
             android:hint="Mobile No. (07xxxxxxxx)"
             android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <Button
         android:id="@+id/btnClientRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register" />
-
-    <TextView
-        android:id="@+id/txtViewLoginNow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/click_to_login"
-        android:textSize="15sp"
-        android:textStyle="bold" />
 
 
     <ProgressBar

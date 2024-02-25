@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Switch on the tracking when you are get into the Vehicle"
+        android:text="Switch ON this when you are get into the Vehicle"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:switchMinWidth="48dp"
-        android:text="Tracking"
+        android:text="GPS Tracker"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <View

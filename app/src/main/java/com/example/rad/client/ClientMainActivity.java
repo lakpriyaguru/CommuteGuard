@@ -21,6 +21,7 @@ public class ClientMainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     SharedPreferences sharedPreferences;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

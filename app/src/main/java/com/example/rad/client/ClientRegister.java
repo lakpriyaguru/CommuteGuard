@@ -2,11 +2,11 @@ package com.example.rad.client;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,16 +33,15 @@ public class ClientRegister extends AppCompatActivity {
     Button buttonClientRegister;
     String name, email, password;
     String nic, contact, address;
-    TextView textViewLoginNow;
     ProgressBar progressBar;
-
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_register);
 
-
+        sharedPreferences = getSharedPreferences("MyAppName", MODE_PRIVATE);
         textInputEditTextFullName = findViewById(R.id.txtInputFullName);
         textInputEditTextEmail = findViewById(R.id.txtInputEmail);
         textInputEditTextPassword = findViewById(R.id.txtInputPassword);
@@ -53,18 +52,8 @@ public class ClientRegister extends AppCompatActivity {
 
         buttonClientRegister = findViewById(R.id.btnClientRegister);
 
-        textViewLoginNow = findViewById(R.id.txtViewLoginNow);
-
         progressBar = findViewById(R.id.progressBar);
 
-        textViewLoginNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ClientLogin.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         buttonClientRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +82,9 @@ public class ClientRegister extends AppCompatActivity {
                                     String message = jsonObject.getString("message");
 
                                     if (status.equals("success")) {
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("email", email);
+                                        editor.apply();
 
                                         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
@@ -118,7 +110,7 @@ public class ClientRegister extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
                     }
-                }){
+                }) {
                     protected Map<String, String> getParams() {
                         Map<String, String> paramV = new HashMap<>();
                         paramV.put("name", name);

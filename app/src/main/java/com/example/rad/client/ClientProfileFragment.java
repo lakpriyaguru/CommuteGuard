@@ -41,7 +41,7 @@ public class ClientProfileFragment extends Fragment {
 
         buttonLogout = view.findViewById(R.id.btnLogout);
         buttonEditDetails = view.findViewById(R.id.btnEditDetails);
-        buttonEditChildDetails = view.findViewById(R.id.btnViewChildDetails);
+        //buttonEditChildDetails = view.findViewById(R.id.btnViewChildDetails);
 
         textViewName = view.findViewById(R.id.txtViewName);
         textViewEmail = view.findViewById(R.id.txtViewEmail);
@@ -98,59 +98,18 @@ public class ClientProfileFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(requireContext(), ClientEditDetails.class);
                 startActivity(intent);
-                requireActivity().finish();
-
+                requireActivity();
             }
         });
 
-/**
- buttonFetch.setOnClickListener(new View.OnClickListener() {
-@Override public void onClick(View v) {
+        /**buttonEditChildDetails.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View v) {
+        Intent intent = new Intent(requireContext(), ClientEditChildDetails.class);
+        startActivity(intent);
+        requireActivity();
+        }
+        });**/
 
-RequestQueue queue = Volley.newRequestQueue(requireContext());
-String url = getString(R.string.urlString) + "profile.php";
-
-StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-@Override public void onResponse(String response) {
-try {
-// Parse JSON response
-JSONObject jsonResponse = new JSONObject(response);
-String name = jsonResponse.getString("name");
-String email = jsonResponse.getString("email");
-String id = jsonResponse.getString("id");
-
-// Display user details in relevant TextViews
-textViewName.setText(name);
-textViewEmail.setText(email);
-textViewContact.setText(id);
-}
-//catch (JSONException e) {
-//    e.printStackTrace();
-// Handle JSON parsing error
-//}
-catch (JSONException e) {
-throw new RuntimeException(e);
-}
-
-}
-}, new Response.ErrorListener() {
-@Override public void onErrorResponse(VolleyError error) {
-error.printStackTrace();
-
-}
-}) {
-protected Map<String, String> getParams() {
-Map<String, String> paramV = new HashMap<>();
-paramV.put("email", sharedPreferences.getString("email", ""));
-paramV.put("apiKey", sharedPreferences.getString("apiKey", ""));
-return paramV;
-}
-};
-queue.add(stringRequest);
-
-}
-});
- **/
 
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override

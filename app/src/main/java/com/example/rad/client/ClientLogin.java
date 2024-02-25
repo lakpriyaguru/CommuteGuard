@@ -54,7 +54,6 @@ public class ClientLogin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ClientRegister.class);
                 startActivity(intent);
-                finish();
             }
         });
 
