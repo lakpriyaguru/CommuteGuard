@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,9 +32,10 @@ public class DriverLogin extends AppCompatActivity {
     TextInputEditText textInputEditTextEmail, textInputEditTextPassword;
     Button buttonDriverLogin;
     String name, email, password, apiKey;
-    TextView textView, textViewUserLogin;
+    TextView textViewUserLogin;
     ProgressBar progressBar;
     SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,55 +58,59 @@ public class DriverLogin extends AppCompatActivity {
             }
         });
 
+
         buttonDriverLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 progressBar.setVisibility(View.VISIBLE);
 
                 email = String.valueOf(textInputEditTextEmail.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = getString(R.string.urlString) + "login.php";
+                String url = getString(R.string.urlString) + "driverLogin.php";
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                progressBar.setVisibility(View.GONE);
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressBar.setVisibility(View.GONE);
 
-                                try {
-                                    JSONObject jsonObject = new JSONObject(response);
-                                    String status = jsonObject.getString("status");
-                                    String message = jsonObject.getString("message");
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
+                            String message = jsonObject.getString("message");
 
-                                    if (status.equals("success")) {
-                                        name = jsonObject.getString("name");
-                                        email = jsonObject.getString("email");
-                                        apiKey = jsonObject.getString("apiKey");
-                                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                                        editor.putString("logged", "true");
-                                        editor.putString("userType", "driver");
-                                        editor.putString("name", name);
-                                        editor.putString("email", email);
-                                        editor.putString("apiKey", apiKey);
-                                        editor.apply();
+                            if (status.equals("success")) {
+                                name = jsonObject.getString("name");
+                                email = jsonObject.getString("email");
+                                apiKey = jsonObject.getString("apiKey");
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("logged", "true");
+                                editor.putString("userType", "driver");
+                                editor.putString("name", name);
+                                editor.putString("email", email);
+                                editor.putString("apiKey", apiKey);
+                                editor.apply();
 
-                                        Intent intent = new Intent(getApplicationContext(), DriverMainActivity.class);
-                                        startActivity(intent);
-                                        finish();
+                                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
-                                    } else {
-                                        //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), DriverMainActivity.class);
+                                startActivity(intent);
+                                finish();
 
-                                    }
-                                } catch (JSONException e) {
-                                    throw new RuntimeException(e);
-                                }
-
+                            } else {
+                                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
                             }
-                        }, new Response.ErrorListener() {
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+
+
+                    }
+                }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressBar.setVisibility(View.GONE);
@@ -121,6 +127,8 @@ public class DriverLogin extends AppCompatActivity {
                 };
                 queue.add(stringRequest);
             }
+
+
         });
 
 

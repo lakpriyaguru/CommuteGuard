@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static final int SPLASH_DELAY = 2500;
+    private static final int SPLASH_DELAY = 3500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,35 +8,54 @@
     android:padding="15dp"
     tools:context=".driver.DriverProfileFragment">
 
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/circular_shape"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_default_profile" />
+
     <TextView
-        android:id="@+id/loginDetails"
-        android:layout_width="match_parent"
+        android:id="@+id/txtViewName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:textSize="18sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/txtViewContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <!--Button
+        android:id="@+id/btnEditDetails"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Edit Details" /-->
 
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="Logout" />
-
-    <TextView
-        android:id="@+id/fetchDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text=""
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnFetch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fetch" />
 
 </LinearLayout>

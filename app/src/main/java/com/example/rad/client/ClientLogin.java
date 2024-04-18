@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -53,7 +54,6 @@ public class ClientLogin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ClientRegister.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -75,7 +75,7 @@ public class ClientLogin extends AppCompatActivity {
                 password = String.valueOf(textInputEditTextPassword.getText());
 
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = getString(R.string.urlString) + "login.php";
+                String url = getString(R.string.urlString) + "userLogin.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
@@ -100,12 +100,14 @@ public class ClientLogin extends AppCompatActivity {
                                         editor.putString("apiKey", apiKey);
                                         editor.apply();
 
+                                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+
                                         Intent intent = new Intent(getApplicationContext(), ClientMainActivity.class);
                                         startActivity(intent);
                                         finish();
 
                                     } else {
-                                        //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 
                                     }
                                 } catch (JSONException e) {

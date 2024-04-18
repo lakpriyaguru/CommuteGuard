@@ -46,6 +46,7 @@ public class ClientDashboardFragment extends Fragment {
 
         sharedPreferences = requireActivity().getSharedPreferences("MyAppName", Context.MODE_PRIVATE);
 
+
         buttonShiftSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +55,7 @@ public class ClientDashboardFragment extends Fragment {
 
                 // fetching user details from the database
                 RequestQueue queue = Volley.newRequestQueue(requireContext());
-                String url = getString(R.string.urlString) + "shiftSubmit.php";
+                String url = getString(R.string.urlString) + "userShiftSubmit.php";
 
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
